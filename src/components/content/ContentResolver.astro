@@ -1,0 +1,21 @@
+---
+import StillImage from '@/components/content/StillImage.astro'
+import Video from '@/components/content/Video.astro'
+import Spacer from '@/components/content/Spacer.astro'
+import TextSection from '@/components/content/TextSection.astro'
+
+const { node } = Astro.props
+const ResolveComponents = {
+  stillImage: StillImage,
+  video: Video,
+  textSection: TextSection,
+  spacer: Spacer,
+}
+---
+
+<div class='gap-px mb-px md:flex container-animation'>
+  {node.map((node) => {
+    const ContentComponent = ResolveComponents[node._type]
+    return <ContentComponent {...node} />
+  })}
+</div>

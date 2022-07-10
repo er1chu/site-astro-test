@@ -1,0 +1,36 @@
+---
+import Partition from '@/components/Partition.astro'
+const logoList: {
+  ImageComponent: any
+  alt: string
+  aspectRatio: number
+  height: string
+}[] = [
+  {
+    ImageComponent: '/eh-5.svg',
+    alt: 'Eric Hu',
+    aspectRatio: 3.192,
+    height: '157',
+  },
+  {
+    ImageComponent: '/studio-5.svg',
+    alt: 'Studio',
+    aspectRatio: 3.069,
+    height: '163',
+  },
+]
+---
+
+{logoList.map(({ ImageComponent, alt, aspectRatio, height }) => (
+  <>
+    <Partition aspectRatio={aspectRatio} styleName="child-animation">
+      <a href="/">
+        <img
+          class="p-2 rounded-md hover:cursor-pointer"
+          src={ImageComponent}
+          alt={alt}
+        />
+      </a>
+    </Partition>
+  </>
+))}

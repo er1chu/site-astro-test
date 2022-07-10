@@ -1,0 +1,27 @@
+---
+import VideoPlayer from '@/components/content/VideoPlayer'
+import CaptionArea from '@/components/content/CaptionArea.astro'
+import { resolveVideoAspectRatio } from '@/utils/layout-helpers'
+const { video, year, caption, credits, project } = Astro.props
+---
+
+<div
+  style={`flex:${resolveVideoAspectRatio(video.asset.data.aspect_ratio)};`}
+  class='mt-px md:mt-0'
+>
+  <div class='w-full h-full child-animation' style='width:100%;height:auto;'>
+    <VideoPlayer video={video.asset} client:visible />
+    <CaptionArea
+      caption={caption}
+      project={project}
+      year={year}
+      credits={credits}
+    />
+  </div>
+</div>
+
+<style>
+  .child-animation {
+    opacity: 0;
+  }
+</style>

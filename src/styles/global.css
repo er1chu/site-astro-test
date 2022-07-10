@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+  @apply bg-black;
+  @apply text-[#454545];
+  @apply font-unica;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+.text-section {
+  @apply font-medium;
+  @apply tracking-tight;
+}
+
+.text-section h1 {
+  @apply text-lg;
+  @apply font-normal;
+  @apply tracking-tighter;
+  @apply leading-[100%];
+  @apply p-2;
+}
+
+img[src$='.svg'] {
+  width: 100%;
+}
+
+a:hover {
+  cursor: pointer;
+}

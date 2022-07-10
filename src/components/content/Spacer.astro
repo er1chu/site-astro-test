@@ -1,0 +1,9 @@
+---
+import Partition from '@/components/Partition.astro'
+type SpacerProps = {
+  gridSize?: number
+}
+const { gridSize } = Astro.props
+---
+
+<Partition aspectRatio={gridSize ? gridSize / 6 : 4} />

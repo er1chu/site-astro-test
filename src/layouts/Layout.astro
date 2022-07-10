@@ -1,0 +1,42 @@
+---
+import Header from '@/components/header/Header.astro'
+import Footer from '@/components/Footer.astro'
+import '@/styles/global.css'
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+    <link rel='preconnect' href='https://typekit.net/' />
+    <link rel='stylesheet' href='https://use.typekit.net/jjh2yph.css' />
+    <title>Eric Hu Studio</title>
+  </head>
+</html>
+<body style='background:black;scroll-behavior: smooth;'>
+  <Header />
+  <slot></slot>
+  <Footer />
+  <script
+    type='module'
+    src={(await import('../utils/animation.ts?url')).default}
+  >
+
+  </script>
+</body>
+
+<style is:global>
+  .child-animation: {
+    opacity: 0;
+  }
+</style>
+
+<noscript>
+  <style is:global>
+    .child-animation: {
+      opacity: 1;
+    }
+  </style>
+</noscript>

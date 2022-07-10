@@ -1,0 +1,23 @@
+---
+import Partition from '@/components/Partition.astro'
+const pageList: { name?: string; href?: string }[] = [
+  { name: 'About', href: '/about' },
+  { name: 'Case Studies', href: '/' },
+  { name: 'Contact', href: '/' },
+]
+---
+
+{pageList.map(({ name, href }) => (
+  <>
+    <Partition
+      deadCenter
+      aspectRatio={1}
+      cta
+      styleName="fade-animation flex grow font-medium items-center p-2 justify-center h-full"
+    >
+      <a href={href} class="hover:cursor-pointer">
+        {name}
+      </a>
+    </Partition>
+  </>
+))}

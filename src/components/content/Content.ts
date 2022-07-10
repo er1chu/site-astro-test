@@ -1,0 +1,5 @@
+export { default as StillImage } from '@/components/content/StillImage.astro'
+export { default as Video } from '@/components/content/Video.astro'
+export { default as Spacer } from '@/components/content/Spacer.astro'
+export { default as TextSection } from '@/components/content/TextSection.astro'
+export { default as ContentSection } from '@/components/content/ContentSection.astro'

@@ -1,0 +1,42 @@
+---
+import Partition from '../Partition.astro'
+import LogoDisplay from './LogoDisplay.astro'
+import StickyBar from './StickyBar.astro'
+---
+
+<header class='flex flex-wrap gap-px container-animation'>
+  <LogoDisplay />
+
+  <Partition
+    hiddenOnMobile
+    aspectRatio={2}
+    styleName='p-3 text-sm font-medium child-animation'
+  >
+    <div class='h-full'>
+      Eric Hu Studio produces striking visual identities and design in the world
+      fashion, music, architecture, commerce, and technology.
+      <span class='pl-2 text-sm underline uppercase decoration-1'>
+        Read More
+      </span>
+    </div>
+  </Partition>
+
+  <Partition
+    hiddenOnMobile
+    aspectRatio={2}
+    styleName='p-3 text-sm font-medium child-animation'
+  >
+    <div>
+      <div>
+        General Inquiries:
+        <span class='underline decoration-1'>studio@erichu.info</span>
+      </div>
+      <div>
+        Services: Creative Direction, Design, Illustration, Development,
+        Strategy
+      </div>
+    </div>
+  </Partition>
+</header>
+
+<StickyBar />

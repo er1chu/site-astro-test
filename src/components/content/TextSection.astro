@@ -1,0 +1,14 @@
+---
+import SimplePortableText from './SimplePortableText.astro'
+import Partition from '@/components/Partition.astro'
+const { text, gridSize } = Astro.props
+---
+
+<Partition
+  aspectRatio={gridSize / 6}
+  stretch
+  gridSize={gridSize}
+  styleName='flex items-center p-2 text-section'
+>
+  {text && <SimplePortableText blocks={text} />}
+</Partition>

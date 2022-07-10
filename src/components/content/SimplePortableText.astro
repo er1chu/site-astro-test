@@ -1,0 +1,21 @@
+---
+import { PortableText } from 'astro-portabletext'
+import StillImage from '@/components/content/StillImage.astro'
+import H1Block from './H1Block.astro'
+import H2Block from './H2Block.astro'
+
+const { blocks } = Astro.props
+---
+
+<PortableText
+  value={blocks}
+  components={{
+    type: {
+      figure: StillImage,
+    },
+    block: {
+      h1: H1Block,
+      h2: H2Block,
+    },
+  }}
+/>

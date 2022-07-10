@@ -1,0 +1,49 @@
+---
+type PartitionProps = {
+  slot?: any
+  gridSize?: number
+  styleName?: string
+  hiddenOnMobile?: boolean
+  stretch?: boolean
+  aspectRatio?: number
+  key?: any
+  disableMotion?: boolean
+  cta?: boolean
+  hidden?: boolean
+  deadCenter?: boolean
+}
+
+const {
+  hidden = false,
+  styleName,
+  hiddenOnMobile = false,
+  cta,
+  deadCenter = false,
+  aspectRatio,
+  stretch,
+}: PartitionProps = Astro.props
+---
+
+<div
+  style={`flex: ${aspectRatio}`}
+  class:list={[
+    'overflow-hidden grow',
+    (hidden || hiddenOnMobile) && 'hidden',
+    hiddenOnMobile && 'md:block',
+    cta ? 'rounded-full' : 'rounded-lg',
+    stretch && 'h-full',
+  ]}
+>
+  <div
+    class:list={[
+      'bg-white h-full w-full',
+      cta
+        ? 'rounded-full hover:text-white hover:bg-gray-500 hover:cursor-pointer'
+        : 'rounded-lg',
+      deadCenter && 'items-center, justify-center',
+      styleName && styleName,
+    ]}
+  >
+    <slot></slot>
+  </div>
+</div>

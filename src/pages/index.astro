@@ -1,0 +1,16 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import client from '@/lib/sanityClient.js'
+import query from '@/lib/api.js'
+import ContentResolver from '@/components/content/ContentResolver.astro'
+
+const pages = await client.fetch(query)
+---
+
+<Layout>
+  <main>
+    {pages.content.map(({ content = [] }) => (
+      <ContentResolver node={content} />
+    ))}
+  </main>
+</Layout>

@@ -1,0 +1,29 @@
+---
+import CaptionArea from './CaptionArea.astro'
+import ImageComponent from '@/components/content/ImageComponent'
+const { year, credits, caption, project, media, count } = Astro.props
+const imgConfig = {
+  sizes: [64, 256, 512, 600, 700, 800, 1024, 1200, 1400, 1600, 1800, 2048],
+}
+const { sizes } = imgConfig
+const { dimensions } = media.asset.metadata
+---
+
+<div
+  style={`flex:${dimensions.aspectRatio};`}
+  class='mt-px overflow-hidden md:mt-0'
+>
+  <div style='opacity:0;' class='flex w-full h-full child-animation'>
+    <figure style='width:100%;height:auto' class='overflow-hidden baba'>
+      <div>
+        <ImageComponent node={Astro.props} sizes={sizes} client:visible />
+      </div>
+      <CaptionArea
+        caption={caption}
+        project={project}
+        year={year}
+        credits={credits}
+      />
+    </figure>
+  </div>
+</div>

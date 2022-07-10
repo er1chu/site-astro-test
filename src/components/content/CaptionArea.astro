@@ -1,0 +1,28 @@
+---
+import Partition from '@/components/Partition.astro'
+type CaptionProps = {
+  caption?: string
+  year?: string
+  credits?: string
+  project?: any
+}
+const { year, caption, credits, project }: CaptionProps = Astro.props
+---
+
+{!year && !caption && !credits && !project ? (
+  <Partition stretch styleName="mt-5 bg-white" />
+) : (
+  <div class="flex flex-grow h-full gap-px mt-px text-[12px] font-medium md:text-xs">
+    {year && <div class="flex p-2 bg-white rounded-lg">{year}</div>}
+    {!caption && !credits ? (
+      <Partition stretch styleName="mt-px" />
+    ) : (
+      <Partition aspectRatio={4} stretch styleName="p-2 w-full">
+        <div>
+          {caption && caption}
+          {credits && <span class="text-gray-500">— {credits}</span>}
+        </div>
+      </Partition>
+    )}
+  </div>
+)}
